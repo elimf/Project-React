@@ -27,6 +27,7 @@
 .lmj-cart-closed {
 	padding: 32px;
 	width: 200px;
+  border: 10px;
 }
 
 .lmj-cart-closed > button {
