@@ -3,13 +3,11 @@ import "../styles/Cart.css";
 
 function Cart({ cart, updateCart }) {
   const [isOpen, setIsOpen] = useState(true);
-  const total = cart.reduce(
-    (acc, plantType) => acc + plantType.amount * plantType.price,
+  const items = Object.keys(cart);
+  const total = items.reduce(
+    (acc, item) => acc + cart[item].amount * cart[item].price,
     0
   );
-  useEffect(() => {
-    alert("Bienvenue dans La maison jungle");
-  }, []);
   useEffect(() => {
     document.title = `LMJ: ${total}€ d'achats`;
   }, [total]);
@@ -33,7 +31,7 @@ function Cart({ cart, updateCart }) {
             ))}
           </ul>
           <h3>Total :{total}€</h3>
-          <button onClick={() => updateCart([])}>Vider le panier</button>
+          <button onClick={() => updateCart([])} >Vider le panier</button>
         </div>
       ) : (
         <div>Votre panier est vide</div>
